@@ -22,7 +22,7 @@
     "@vueuse/integrations": "^10.4.0",
     "axios": "^1.4.0",
     "dayjs": "^1.11.9",
-    "element-plus": "^2.3.10",
+    "element-plus": "^2.3.14",
     "eruda": "^3.0.1",
     "hotkeys-js": "^3.12.0",
     "lodash-es": "^4.17.21",
