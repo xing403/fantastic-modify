@@ -1,8 +1,7 @@
 import { setupLayouts } from 'virtual:meta-layouts'
 import generatedRoutes from 'virtual:generated-pages'
 import type { RouteRecordRaw } from 'vue-router'
-import MultilevelMenuExample from './modules/multilevel.menu.example'
-import BreadcrumbExample from './modules/breadcrumb.example'
+import Extend from './modules/extend'
 import type { Route } from '#/global'
 import useSettingsStore from '@/store/modules/settings'
 
@@ -83,8 +82,7 @@ const asyncRoutes: Route.recordMainRaw[] = [
       icon: 'sidebar-default',
     },
     children: [
-      MultilevelMenuExample,
-      BreadcrumbExample,
+      Extend,
     ],
   },
 ]

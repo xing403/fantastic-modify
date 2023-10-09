@@ -1,4 +1,4 @@
-import MultilevelMenuExample from './modules/multilevel.menu.example'
+import Extend from './modules/extend'
 
 import type { Menu } from '#/global'
 
@@ -9,7 +9,7 @@ const menu: Menu.recordMainRaw[] = [
       icon: 'sidebar-default',
     },
     children: [
-      MultilevelMenuExample,
+      Extend,
     ],
   },
 ]

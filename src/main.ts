@@ -4,6 +4,7 @@ import App from './App.vue'
 import pinia from './store'
 import router from './router'
 import useSettingsStore from './store/modules/settings'
+import useGlobalInformation from './store/modules/globalInformation'
 
 // 自定义指令
 import directive from '@/utils/directive'
@@ -23,7 +24,9 @@ app.use(pinia)
 app.use(router)
 directive(app)
 if (useSettingsStore().settings.app.iconifyOfflineUse) {
-  downloadAndInstall()
+  downloadAndInstall().then((res) => {
+    useGlobalInformation().iconInformation = res
+  })
 }
 
 app.mount('#app')
