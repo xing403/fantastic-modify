@@ -22,6 +22,14 @@ const routes: RouteRecordRaw = {
         title: '图标扩展',
       },
     },
+    {
+      path: 'card',
+      name: 'extendCard',
+      component: () => import('@/views/extend/card.vue'),
+      meta: {
+        title: '卡片扩展',
+      },
+    },
   ],
 }
 
