@@ -86,6 +86,7 @@ const oneStepAdminInfo = ref({
       <div class="question">
         <ul class="answer">
           <li><span>增加 iconify 图标集合：</span>默认仅支持 <span>@iconify-json/ep</span>，现支持 <span>iconify</span> 全部图标集合</li>
+          <li><span>引入UnoCSS</span>: 原子化样式库</li>
           <li><span>自定义卡片</span></li>
         </ul>
       </div>
