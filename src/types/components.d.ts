@@ -12,6 +12,7 @@ declare module 'vue' {
     ColorfulCard: typeof import('./../components/ColorfulCard/index.vue')['default']
     FileUpload: typeof import('./../components/FileUpload/index.vue')['default']
     FixedActionBar: typeof import('./../components/FixedActionBar/index.vue')['default']
+    IconTag: typeof import('./../components/IconTag/index.vue')['default']
     ImagePreview: typeof import('./../components/ImagePreview/index.vue')['default']
     ImagesUpload: typeof import('./../components/ImagesUpload/index.vue')['default']
     ImageUpload: typeof import('./../components/ImageUpload/index.vue')['default']
@@ -25,6 +26,7 @@ declare module 'vue' {
     SearchBar: typeof import('./../components/SearchBar/index.vue')['default']
     SvgIcon: typeof import('./../components/SvgIcon/index.vue')['default']
     SystemInfo: typeof import('./../components/SystemInfo/index.vue')['default']
+    Tag: typeof import('./../components/Tag/index.vue')['default']
     Trend: typeof import('./../components/Trend/index.vue')['default']
   }
 }

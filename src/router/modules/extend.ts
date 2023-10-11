@@ -19,7 +19,7 @@ const routes: RouteRecordRaw = {
       name: 'extendIcon',
       component: () => import('@/views/extend/icon.vue'),
       meta: {
-        title: '图标扩展',
+        title: 'Icon扩展',
       },
     },
     {
@@ -27,7 +27,15 @@ const routes: RouteRecordRaw = {
       name: 'extendCard',
       component: () => import('@/views/extend/card.vue'),
       meta: {
-        title: '卡片扩展',
+        title: 'Card扩展',
+      },
+    },
+    {
+      path: 'tag',
+      name: 'extendTag',
+      component: () => import('@/views/extend/tag.vue'),
+      meta: {
+        title: 'Tag扩展',
       },
     },
   ],
