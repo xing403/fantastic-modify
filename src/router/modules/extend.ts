@@ -38,6 +38,14 @@ const routes: RouteRecordRaw = {
         title: 'Tag扩展',
       },
     },
+    {
+      path: 'qr-code',
+      name: 'extendQRCode',
+      component: () => import('@/views/extend/qr-code.vue'),
+      meta: {
+        title: 'QRCode二维码',
+      },
+    },
   ],
 }
 
