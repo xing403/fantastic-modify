@@ -12,12 +12,6 @@ const data = ref([{
   required: 'false',
   default: ' - ',
 }, {
-  prop: 'title',
-  name: '卡片头',
-  type: 'string',
-  required: 'false',
-  default: ' - ',
-}, {
   prop: 'gradient-start',
   name: '渐变开始颜色',
   type: 'string',
