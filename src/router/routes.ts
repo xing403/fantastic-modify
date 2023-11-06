@@ -3,6 +3,7 @@ import generatedRoutes from 'virtual:generated-pages'
 import type { RouteRecordRaw } from 'vue-router'
 import Extend from './modules/extend'
 import Functions from './modules/functions'
+import Test from './modules/test'
 import type { Route } from '#/global'
 import useSettingsStore from '@/store/modules/settings'
 
@@ -85,6 +86,7 @@ const asyncRoutes: Route.recordMainRaw[] = [
     children: [
       Extend,
       Functions,
+      Test,
     ],
   },
 ]
