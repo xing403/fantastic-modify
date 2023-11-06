@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const text = ref('fantastic-modify')
+const QR_width = ref(300)
 const data = [{
   prop: 'text',
   name: '文本',
@@ -28,7 +29,7 @@ const data = [{
   name: '宽度',
   type: 'number',
   required: 'false',
-  default: 'auto',
+  default: '200',
 }, {
   prop: 'scale',
   name: '码元宽度 (设置width无效)',
@@ -55,60 +56,94 @@ const data = [{
   default: 'low/L',
 }, {
   prop: 'download',
-  name: '下载二维码',
+  name: '下载',
   type: 'boolean',
   required: 'false',
   default: 'false',
+}, {
+  prop: 'refresh',
+  name: '刷新',
+  type: 'boolean',
+  required: 'false',
+  default: 'false',
+}, {
+  prop: 'download-before',
+  name: '下载之前执行',
+  type: 'Function',
+  required: 'false',
+  default: '-',
+}, {
+  prop: 'refresh-before',
+  name: '刷新之前执行',
+  type: 'Function',
+  required: 'false',
+  default: ' - ',
+}]
+const events = [{
+  prop: 'downloaded',
+  name: '下载',
+  type: 'Function',
+}, {
+  prop: 'refreshed',
+  name: '刷新',
+  type: 'Function',
 }]
 </script>
 
 <template>
   <div>
-    <page-header title="QRCode 二维码 组件">
-      <template #content />
-    </page-header>
+    <page-header title="QRCode 二维码 组件" />
     <page-main>
       <el-input v-model="text" />
-      <QRCode v-model:text="text" />
+      <QRCode v-model="text" />
     </page-main>
     <page-main title="不同颜色和背景">
       <el-row :gutter="20">
         <el-col :md="6" :lg="6" :xl="6">
-          <QRCode v-model:text="text" dark="#409eff" />
+          <QRCode v-model="text" dark="#409eff" />
         </el-col>
         <el-col :md="6" :lg="6" :xl="6">
-          <QRCode v-model:text="text" dark="#FF0000" />
+          <QRCode v-model="text" dark="#FF0000" />
         </el-col>
         <el-col :md="6" :lg="6" :xl="6">
-          <QRCode v-model:text="text" dark="#222B45" />
+          <QRCode v-model="text" dark="#222B45" />
         </el-col>
       </el-row>
       <el-row :gutter="20">
         <el-col :md="6" :lg="6" :xl="6">
-          <QRCode v-model:text="text" light="#409eff" dark="#FFFFFF" />
+          <QRCode v-model="text" light="#409eff" dark="#FFFFFF" />
         </el-col>
         <el-col :md="6" :lg="6" :xl="6">
-          <QRCode v-model:text="text" light="#FF0000" dark="#FFFFFF" />
+          <QRCode v-model="text" light="#FF0000" dark="#FFFFFF" />
         </el-col>
         <el-col :md="6" :lg="6" :xl="6">
-          <QRCode v-model:text="text" light="#222B45" dark="#FFFFFF" />
+          <QRCode v-model="text" light="#222B45" dark="#FFFFFF" />
         </el-col>
       </el-row>
     </page-main>
     <page-main title="不同大小">
       <el-row :gutter="20">
-        <el-col :md="6" :lg="6" :xl="6">
-          <QRCode v-model:text="text" :width="100" />
+        <el-col :span="24">
+          <el-slider v-model="QR_width" :min="100" :max="500" />
         </el-col>
         <el-col :md="6" :lg="6" :xl="6">
-          <QRCode v-model:text="text" :width="200" />
+          <QRCode v-model="text" :width="100" />
+        </el-col>
+        <el-col :md="6" :lg="6" :xl="6">
+          <QRCode v-model="text" :width="QR_width" />
         </el-col>
       </el-row>
     </page-main>
-    <page-main title="二维码下载">
+    <page-main title="二维码下载 & 刷新（鼠标悬浮在二维码上）">
       <el-row :gutter="20">
         <el-col :md="6" :lg="6" :xl="6">
-          <QRCode v-model:text="text" :width="120" download />
+          <QRCode v-model="text" :width="200" download />
+        </el-col>
+        <el-col :md="6" :lg="6" :xl="6">
+          <QRCode v-model="text" :width="200" refresh />
+        </el-col>
+        <el-col :md="6" :lg="6" :xl="6">
+          <QRCode v-model="text" :width="200" refresh download />
         </el-col>
       </el-row>
     </page-main>
@@ -119,6 +154,13 @@ const data = [{
         <el-table-column label="类型" prop="type" />
         <el-table-column label="是否必填" prop="required" width="100" />
         <el-table-column label="默认值" prop="default" width="150" />
+      </el-table>
+    </page-main>
+    <page-main title="事件">
+      <el-table :data="events">
+        <el-table-column label="事件名" prop="prop" width="150" />
+        <el-table-column label="说明" prop="name" />
+        <el-table-column label="类型" prop="type" />
       </el-table>
     </page-main>
   </div>
